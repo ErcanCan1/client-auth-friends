@@ -9,9 +9,21 @@ export default function LoginForm() {
         formState: { errors } } = useForm({mode:"onChange"});
 
         const onSubmitLogin = (data) => {
-            axios.post("http://localhost3000/api/login". data)
-            .then((res) => console.log(res.data))
-            .catch((err) => console.log(err))
+         const config ={
+            method:"post",
+            url: "http:/localhost3000/api/login",
+            headers: {
+                "Content-Type": "application/json",
+            }
+            
+         };
+         axios(config)
+         .then( function(res){
+            console.log(JSON.stringify(res.data));
+         })
+         .catch(function (error){
+            console.log(error);
+         });
         }
 
         return(
@@ -33,3 +45,4 @@ export default function LoginForm() {
         )
 
 }
+

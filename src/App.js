@@ -1,5 +1,7 @@
 import './App.css';
-import LoginForm from './mocks/LoginForm';
+import FriendsList from './components/FriendsList';
+import LoginForm from './components/LoginForm';
+
 
 
 function App() {
@@ -7,6 +9,7 @@ function App() {
     <div className="App">
       <h1>Client Auth Projesi: Friends</h1>
       <LoginForm />
+      <FriendsList />
     </div>
   );
 }

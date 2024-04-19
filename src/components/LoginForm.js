@@ -12,19 +12,30 @@ export default function LoginForm() {
          const config ={
             method:"post",
             url: "http:/localhost3000/api/login",
+            data: JSON.stringify(data),
             headers: {
                 "Content-Type": "application/json",
             }
             
+            
          };
          axios(config)
          .then( function(res){
+            localStorage.setItem("token", res .data.token);
             console.log(JSON.stringify(res.data));
          })
          .catch(function (error){
             console.log(error);
          });
         }
+
+        const token = localStorage.getItem("token");
+
+        axios.create({
+            headers:{
+                Authorization: token,
+            }
+        });
 
         return(
             <div>

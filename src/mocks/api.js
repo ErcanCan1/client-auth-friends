@@ -1,3 +1,4 @@
+
 const express = require('express')
 const Data = require('./data')
 const cors = require('cors')
@@ -60,6 +61,6 @@ api.post('/api/friends', authenticator, (req, res) => {
   res.json(Data.create(req.body))
 })
 
-api.listen(9000, () => {
+api.listen(3000, () => {
   console.log('listening on 9000')
 })
